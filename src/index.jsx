@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { AppContainer } from 'react-hot-loader';
 import { HashRouter } from 'react-router-dom';
+import { NavBar } from './components/Navbar/Navbar';
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
       <HashRouter>
+
         <Component/>
+        
       </HashRouter>
     </AppContainer>,
     document.getElementById('react-app-root')
