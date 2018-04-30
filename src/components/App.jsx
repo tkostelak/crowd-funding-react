@@ -22,7 +22,6 @@ function App(){
       .container{
         margin-right: 95%
         margin-left: 95%
-        margin-bottom: 80%;
       }  
       body{
           font-family: monospace;
