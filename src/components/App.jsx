@@ -3,9 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 import Welcome from './Welcome/Welcome';
 import Navbar from './Navbar/Navbar';
 import Browse from './Browse/Browse';
-import Funding from './Funding/Funding';
 import Error404 from './Error404/Error404';
 import About from './About/About';
+import FundingControl from './FundingControl/FundingControl';
 
 function App(){
   return (
@@ -15,7 +15,7 @@ function App(){
         <Route exact path='/' component={Welcome} />
         <Route path='/browse' component={Browse} />
         <Route path='/about' component={About} />
-        <Route path='/funding' component={Funding} />
+        <Route path='/funding' component={FundingControl} />
         <Route component={Error404}/>
       </Switch>
       <style global jsx>{`
