@@ -1,23 +1,21 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './Home/Home';
-import NavBar from './Navbar/Navbar';
-import Login from './Login/Login';
-import Signup from './Signup/Signup';
-import Upload from './Upload/Upload';
-import Gallery from './Gallery/Gallery';
+import Welcome from './Welcome/Welcome';
+import Navbar from './Navbar/Navbar';
+import Browse from './Browse/Browse';
+import Funding from './Funding/Funding';
 import Error404 from './Error404/Error404';
+import About from './About/About';
 
 function App(){
   return (
     <div className="container">
+      <Navbar/> 
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/nav' component={NavBar} />
-        <Route path='/login' component={Login} />
-        <Route path='/signup' component={Signup} />
-        <Route path='/upload' component={Upload} />
-        <Route path='/gallery' component={Gallery} />
+        <Route exact path='/' component={Welcome} />
+        <Route path='/browse' component={Browse} />
+        <Route path='/about' component={About} />
+        <Route path='/funding' component={Funding} />
         <Route component={Error404}/>
       </Switch>
       <style global jsx>{`

@@ -1,40 +1,44 @@
 import React from 'react';
-import photographer from '../../assets/images/photographer.jpg';
-import { Button, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function NavBar(){
-
+function Navbar() {
   return (
-    <div className = 'navbarContent'>
-    <Navbar>
-<Navbar.Header>
-  <Navbar.Brand>
-    <a href="#home">React-Bootstrap</a>
-  </Navbar.Brand>
-</Navbar.Header>
-<Nav>
-  <NavItem eventKey={1} href="#">
-    Link
-  </NavItem>
-  <NavItem eventKey={2} href="#">
-    Link
-  </NavItem>
-  <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-    <MenuItem eventKey={3.1}>Action</MenuItem>
-    <MenuItem eventKey={3.2}>Another action</MenuItem>
-    <MenuItem eventKey={3.3}>Something else here</MenuItem>
-    <MenuItem divider />
-    <MenuItem eventKey={3.4}>Separated link</MenuItem>
-  </NavDropdown>
-</Nav>
-</Navbar>;
+    <div className="navbarContent">
+      <Link className="link active" id="navTitleText" to="/">SquadFund</Link> |
+      <Link className="link" to="/browse">Browse</Link> |
+      <Link className="link" to="/funding">Funding</Link> |
+      <Link className="link" to="/about">About</Link>
+    
       <style jsx>{`
-        div.navbarContent{
+            .App {
+        text-align: left;
+        }
+        
+        .navbarContent {
+          background-color: #02C39A;;
+          height: 10%;
+          padding: 2%;
+          color: black;
+          
+        }
+        
+        #navTitleText {
+          font-size: 300px;
+          font-family: 'Amatic SC', cursive;
+          font-weight: bold;
+
+        }
+
+        .navbarContent .link{
+        font-size: 2em;
+        font-family: 'Amatic SC', cursive;
+        font-weight: bold;
+
         }
       `}
-      </style>
+      </style>    
     </div>
   );
 }
 
-export default NavBar;
+export default Navbar;

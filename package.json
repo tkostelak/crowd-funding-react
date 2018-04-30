@@ -12,11 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "css-loader": "^0.28.11",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.0.0",
+    "style-loader": "^0.21.0",
     "styled-jsx": "^2.2.6",
     "webfontloader": "^1.6.28"
   },
