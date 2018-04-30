@@ -21,7 +21,7 @@ WebFont.load({
   google: {
     families: ['Amatic SC', 'cursive']
   }
-})
+});
 
 render(App);
 
