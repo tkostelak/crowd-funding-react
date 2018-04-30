@@ -6,7 +6,7 @@ function Navbar() {
     <div className="navbarContent">
       <Link className="link active" id="navTitleText" to="/">Home</Link> |
       <Link className="link" to="/browse">Browse</Link> |
-      <Link className="link" to="/funding">Funding</Link> |
+      <Link className="link" to="/funding">Get Funded</Link> |
       <Link className="link" to="/about">About</Link>
     
       <style jsx>{`
