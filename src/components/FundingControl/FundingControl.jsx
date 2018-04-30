@@ -2,6 +2,7 @@ import React from 'react';
 import FundingQuestions from '../FundingQuestions/FundingQuestions';
 import Funding from '../Funding/Funding'; 
 import FundingButton from '../FundingButton/FundingButton';
+import FundingReferral from '../fundingReferral/FundingReferral';
 
 class FundingControl extends React.Component {
 
@@ -10,18 +11,23 @@ class FundingControl extends React.Component {
         this.state = {
             questionsVisibleOnPage: false,
             formVisibleOnPage: false,
-            buttonVisibleOnPage: true
+            buttonVisibleOnPage: true,
+            referralVisibleOnPage: false
         };
         this.handleShowQuestions = this.handleShowQuestions.bind(this);
-        this.handleConfirmQuestions = this.handleConfirmQuestions.bind(this); 
-    
+        this.handleConfirmQuestionsNo = this.handleConfirmQuestionsNo.bind(this); 
+        this.handleConfirmQuestionsYes = this.handleConfirmQuestionsYes.bind(this);
     }    
     handleShowQuestions(){
         this.setState({questionsVisibleOnPage: true})
         this.setState({buttonVisibleOnPage: false})
     }
 
-    handleConfirmQuestions(){
+    handleConfirmQuestionsYes(){
+        this.setState({referralVisibleOnPage: true})
+    }
+    
+    handleConfirmQuestionsNo(){
         this.setState({formVisibleOnPage: true})     
     }
    
@@ -29,8 +35,9 @@ class FundingControl extends React.Component {
         let currentlyVisibleContent = null;
         
         if (this.state.buttonVisibleOnPage == true) currentlyVisibleContent = <FundingButton onShowQuestions = {this.handleShowQuestions}/>
-        if (this.state.questionsVisibleOnPage == true) currentlyVisibleContent =         <FundingQuestions onConfirmQuestions={this.handleConfirmQuestions}/>
+        if (this.state.questionsVisibleOnPage == true) currentlyVisibleContent =         <FundingQuestions onConfirmQuestionsNo={this.handleConfirmQuestionsNo} onConfirmQuestionsYes = {this.handleConfirmQuestionsYes}/>
         if (this.state.formVisibleOnPage == true) currentlyVisibleContent = <Funding/> 
+        if (this.state.referralVisibleOnPage == true) currentlyVisibleContent = <FundingReferral/>
         return (
             <div>
                 {currentlyVisibleContent}

@@ -3,20 +3,25 @@ import PropTypes from 'prop-types';
 
 function FundingQuestions(props){
 
-    function handleClick(){
-        props.onConfirmQuestions(); 
+    function handleClickYes(){
+        props.onConfirmQuestionsYes();
+    }
+    
+    function handleClickNo(){
+        props.onConfirmQuestionsNo(); 
     }
     return(
         <div>
             <p>Have you received funding from Squadfund previously?</p>
-            <button onClick={handleClick}>Yes</button>
-            <button>No</button>
+            <button onClick={handleClickYes}>Yes</button>
+            <button onClick={handleClickNo}>No</button>
         </div>
     );
 }
 
 FundingQuestions.propTypes = {
-    onConfirmQuestions: PropTypes.func.isRequired
+    onConfirmQuestionsNo: PropTypes.func.isRequired,
+    onConfirmQuestionsYes: PropTypes.func.isRequired
 }
 
 export default FundingQuestions;
