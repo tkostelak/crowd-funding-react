@@ -1,38 +1,60 @@
 import React from 'react';
 
 function Funding() {
+  
+  let _firstName = null;
+  let _lastName = null;
+  let _phoneNumber = null;
+  let _requestAmount = null;
+  let _summaryText = null;
+
+  function handleNewTicketFormSubmission(event) {
+    event.preventDefault();
+    console.log(_firstName.value);
+    console.log(_lastName.value);
+    console.log(_phoneNumber.value);
+    console.log(_requestAmount.value);
+    console.log(_summaryText.value);
+    
+  }
+  
   return (
     <div className='fundingContent'>
       <h1>Squadfund your next adventure!</h1>
-      <form>
+      <form onSubmit={handleNewTicketFormSubmission}>
         <input  
           placeholder='first name'
           type='text'
           required
-          id='firstName'/>
+          id='firstName'
+          ref={(input) => {_firstName = input;}}/> 
         <br/>
         <input  
           placeholder='last name'
           type='text'
           required
-          id='lastName'/>
+          id='lastName'
+          ref={(input) => { _lastName = input; }}/>
         <br/>
         <input
           placeholder='phone number'
           type='text'
           required
-          id='phoneNumber' />
+          id='phoneNumber' 
+          ref={(input) => { _phoneNumber = input; }}/>
         <br/>
         <input
           placeholder='amount (US dollars)'
           type='text'
           required
-          id='requestAmount' />
+          id='requestAmount' 
+          ref={(input) => { _requestAmount = input; }} />
         <br/>
         <textarea
           id='summaryText'
           required
-          placeholder='Sell us on your idea!'/>
+          placeholder='Sell us on your idea!'
+          ref={(textarea) => { _summaryText = textarea; }} />
         <br/>
         <button type='submit'>Submit</button>
       </form>
