@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function FundingForm(props) {
   
@@ -17,7 +18,9 @@ function FundingForm(props) {
       lastName: _lastName.value,
       phoneNumber: _phoneNumber.value,
       requestAmount: _requestAmount.value,
-      summaryText: _summaryText.value
+      summaryText: _summaryText.value,
+      id: v4()
+
     };
     
     props.onNewSubmission(newFundingSubmission);
@@ -106,7 +109,7 @@ function FundingForm(props) {
         h1{
           font-family: Amatic SC;
           font-weight: bolder;
-          font-size: 6 vw;
+          font-size:  4.5vw;
         }
         `}
       </style>   

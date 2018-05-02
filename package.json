@@ -21,6 +21,7 @@
     "react-router-dom": "^4.0.0",
     "style-loader": "^0.21.0",
     "styled-jsx": "^2.2.6",
+    "uuid": "^3.2.1",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
