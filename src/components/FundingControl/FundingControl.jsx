@@ -3,6 +3,7 @@ import FundingQuestions from '../FundingQuestions/FundingQuestions';
 import FundingForm from '../FundingForm/FundingForm'; 
 import FundingButton from '../FundingButton/FundingButton';
 import FundingReferral from '../fundingReferral/FundingReferral';
+import PropTypes from 'prop-types';
 
 class FundingControl extends React.Component {
 
@@ -17,7 +18,9 @@ class FundingControl extends React.Component {
     this.handleShowQuestions = this.handleShowQuestions.bind(this);
     this.handleConfirmQuestionsNo = this.handleConfirmQuestionsNo.bind(this); 
     this.handleConfirmQuestionsYes = this.handleConfirmQuestionsYes.bind(this);
+  
   }    
+  
   handleShowQuestions(){
     this.setState({questionsVisibleOnPage: true});
     this.setState({buttonVisibleOnPage: false});
@@ -35,9 +38,13 @@ class FundingControl extends React.Component {
     let currentlyVisibleContent = null;
         
     if (this.state.buttonVisibleOnPage == true) currentlyVisibleContent = <FundingButton onShowQuestions = {this.handleShowQuestions}/>;
+    
     if (this.state.questionsVisibleOnPage == true) currentlyVisibleContent =         <FundingQuestions onConfirmQuestionsNo={this.handleConfirmQuestionsNo} onConfirmQuestionsYes = {this.handleConfirmQuestionsYes}/>;
-    if (this.state.formVisibleOnPage == true) currentlyVisibleContent = <FundingForm/>; 
+    
+    if (this.state.formVisibleOnPage == true) currentlyVisibleContent = <FundingForm onNewSubmission={this.props.onNewSubmission}/>; 
+    
     if (this.state.referralVisibleOnPage == true) currentlyVisibleContent = <FundingReferral/>;
+    
     return (
       <div>
         {currentlyVisibleContent}
@@ -45,5 +52,9 @@ class FundingControl extends React.Component {
     );
   }
 }
+
+FundingControl.propTypes = {
+  onNewSubmission: PropTypes.func.isRequired
+};
 
 export default FundingControl;

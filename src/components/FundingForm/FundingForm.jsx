@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Funding() {
+function FundingForm(props) {
   
   let _firstName = null;
   let _lastName = null;
@@ -10,14 +11,24 @@ function Funding() {
 
   function handleNewTicketFormSubmission(event) {
     event.preventDefault();
-    console.log(_firstName.value);
-    console.log(_lastName.value);
-    console.log(_phoneNumber.value);
-    console.log(_requestAmount.value);
-    console.log(_summaryText.value);
     
-  }
+    let newFundingSubmission = {
+      firstName: _firstName.value,
+      lastName: _lastName.value,
+      phoneNumber: _phoneNumber.value,
+      requestAmount: _requestAmount.value,
+      summaryText: _summaryText.value
+    };
+    
+    props.onNewSubmission(newFundingSubmission);
+
+    _firstName.value = '';
+    _lastName.value = '';
+    _phoneNumber.value = '';
+    _requestAmount.value = '';
+    _summaryText.value = '';
   
+  }  
   return (
     <div className='fundingContent'>
       <h1>Squadfund your next adventure!</h1>
@@ -34,7 +45,7 @@ function Funding() {
           type='text'
           required
           id='lastName'
-          ref={(input) => { _lastName = input; }}/>
+          ref={(input) => { _lastName = input;}}/>
         <br/>
         <input
           placeholder='phone number'
@@ -95,7 +106,7 @@ function Funding() {
         h1{
           font-family: Amatic SC;
           font-weight: bolder;
-          font-size: 3.5em;
+          font-size: 6 vw;
         }
         `}
       </style>   
@@ -103,4 +114,8 @@ function Funding() {
   );
 }
 
-export default Funding;
+FundingForm.propTypes = {
+  onNewSubmission: PropTypes.func
+};
+
+export default FundingForm;
